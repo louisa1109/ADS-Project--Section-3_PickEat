@@ -12,8 +12,11 @@ Our app has four main functions:
 For the code provided it is necessary to import a given dataset. 
 
 To be able to run our program, make sure you have the following things installed:
-• Python Programming Languange. Versions between 3.10 and 3.11 are suitable. 
-• Libraries. In order to run the program, the following three libraries were used: pandas, numpy & io.
+
+- Python Programming Languange. Versions between 3.10 and 3.11 are suitable. 
+
+- Libraries. In order to run the program, the following three libraries were used: pandas, numpy & io.
+
 In order to install the library type the following command:
 ```pip install pandas```
 ```pip install numpy```
