@@ -1,1 +1,556 @@
 
+import pandas as pd
+import numpy as np
+
+
+# defining the pantry 
+def pantry():
+    dpan = pd.read_csv(io.BytesIO(uploaded['df.csv']))
+    ing = dpan['Ingredients'].tolist()[:1000]
+
+    for i in range(len(ing)):
+        ing[i] = ''.join(e for e in ing[i] if e.isalpha() or e == ' ' or e == ',' or e == '.' or e == "'")
+
+    for i in range(len(ing)):
+        ing[i] = ing[i].split()
+        ing[i] = ' '.join(ing[i])
+
+    for i in range(len(ing)):
+        ing[i] = ing[i].split()
+        ing[i] = list(dict.fromkeys(ing[i]))
+        ing[i] = ' '.join(ing[i])
+
+    for i in range(len(ing)):
+        ing[i] = ing[i].split()
+        ing[i] = [x for x in ing[i] if x != '']
+        ing[i] = ' '.join(ing[i])
+
+    # every come means a new ingredient
+    ing = ing[0].split(',')
+    # make a dictionary of all the ingredients and give them a key of 1
+    ing = dict.fromkeys(ing, 1)
+    pantry = ing
+
+    edit = input("Do you want to delete or add elements from the pantry? (add/delete)").lower()
+
+    ### ADDING IN THE PANTRY ###
+
+    # In a while loop we can implement the items in the list.
+    # While the previous variable is equal to yes, then...
+    if edit == 'add':
+      add = 'yes'
+
+      while add == 'yes':
+          # we ask the user for the item to add to the pantry and...
+          item = input('Enter an article to add to the pantry: ')
+          # we ask the user for the amount of the item to add to the pantry.
+          amount = input('Enter the the amount to add: ')
+      
+          # Checking if the amount just inputed is numerical.
+          if amount.isnumeric() == True:
+            # If it is,
+            # then we save the input as a numerical value.
+            amountF = int(amount) 
+
+            # We check if the value is already in the list. 
+            # If it is,
+            if item in pantry:
+              # we add to the already saved amount of the item the new amount 
+              # given from the user.
+              pantry[item] += amountF
+
+            # If it is not,
+            else:
+              # we make sure to implement the amount in the list.
+              pantry[item] = amountF
+
+          # Otherwise, (if the amount is not numeric)
+          while amount.isnumeric() != True:
+            # We print an error
+            print('the value insirted is not a number')
+            # and ask for the amount again.
+            amount = input('Enter the amount of ' + item + ': ')
+        
+          # We ask the user if they want to add more items in the list.
+          add = input('Do you want to add other articles to the pantry (Yes/No)?').lower()
+
+      # If the answer is not yes, then print the following message.
+      else:      
+        print('Added to your pantry!')
+        edit = input("Do you want to delete or add elements from the pantry? (add/delete/no)").lower()
+
+    ### DELETING FROM THE PANTRY ###
+
+    # In a while loop we can implement the items in the list.
+    # While the previous variable is equal to yes, then...
+    if edit == 'delete':
+      delete = 'yes'
+      while delete == 'yes':
+          # we ask the user for the item to add to the pantry and...
+          item = input('Enter an article to remove from the pantry: ')
+
+          # We check if the value is already in the list.
+          # If it is,
+          if item in pantry:
+            # we ask the user for the amount of the item to add to the pantry.
+            amount = input('Enter the the amount to remove: ')
+      
+
+            # Checking if the amount just inputed is numerical.
+            if amount.isnumeric() == True:
+              # If it is,
+              # then we save the input as a numerical value.
+              amountF = int(amount) 
+
+              if pantry[item] > amountF:
+                # we add to the already saved amount of the item the new amount 
+                # given from the user.
+                pantry[item] -= amountF
+
+              else:
+                pantry.pop(item)
+
+            while amount.isnumeric() != True:
+              # We print an error
+              print('the value insirted is not a number')
+              # and ask for the amount again.
+              amount = input('Enter the amount of ' + item + ': ')
+
+          # If it is not,
+          else:
+            # we make sure to implement the amount in the list.
+            print("The item is already not in the pantry")
+            delete = input('Do you want to delete other articles from the pantry (Yes/No)?').lower()
+
+        
+          # We ask the user if they want to add more items in the list.
+          delete = input('Do you want to delete other articles from the pantry (Yes/No)?').lower()
+  
+      # If the answer is not yes, then print the following message.       
+      else:      
+        print('Removed from your pantry!')
+        edit = input("Do you want to delete or add elements from the pantry? (add/delete/no)").lower()
+
+    ### SHOWING THE PANTRY ###
+
+    # Asking the user if they want to see what is stored in the pantry. 
+    showingP = input('Do you want to see what you have in the pantry (Yes/No)?').lower()
+  
+    # If the answer of the user is yes,
+    if showingP == 'yes':
+      # for all the items that we saved previosly in the pantry
+      for item in pantry:
+        # we show it to the user the item and the amount that they have. 
+        print(item, '\t', pantry[item])
+
+
+    elif choice == 'look':
+        for item in pantry:
+            print(item, ":", '\t', pantry[item])
+
+    # tell the user to press enter to go to the main manu and if the du run function pickeat
+    print('Press enter to go to the main menu')
+    input()
+    pickeat()
+
+
+
+def calendar():
+    df = pd.read_csv(io.BytesIO(uploaded['df.csv']))
+    ing = df['Ingredients'].tolist()[:1000]
+
+    # eliminate non alphabetical characters apart of , . ' and spaces
+    for i in range(len(ing)):
+        ing[i] = ''.join(e for e in ing[i] if e.isalpha() or e == ' ' or e == ',' or e == '.' or e == "'")
+
+    ##eliminate extra spaces inbetween ''
+    for i in range(len(ing)):
+        ing[i] = ing[i].split()
+        ing[i] = ' '.join(ing[i])
+
+    # eliminate repeated words
+    for i in range(len(ing)):
+        ing[i] = ing[i].split()
+        ing[i] = list(dict.fromkeys(ing[i]))
+        ing[i] = ' '.join(ing[i])
+
+    # eliminate empty strings
+    for i in range(len(ing)):
+        ing[i] = ing[i].split()
+        ing[i] = [x for x in ing[i] if x != '']
+        ing[i] = ' '.join(ing[i])
+    # only keep columns 'Title', 'Ingredients', 'Instructions'
+    df = df[['Title', 'Ingredients', 'Instructions']]
+    df = df.dropna()
+    df = df.astype(str)
+
+    year = 1990
+    cal = pd.Series(pd.date_range(year, periods=365, freq='D'))
+
+    cal = cal.dt.strftime('%Y-%m-%d')
+    cal = pd.DataFrame(cal)
+    cal = cal.rename(columns={0: 'date'})
+    cal['year'] = cal['date'].str[:4]
+    cal['month'] = cal['date'].str[5:7]
+    cal['day'] = cal['date'].str[8:10]
+    cal = cal[['year', 'month', 'day']]
+    cal = cal.astype(int)
+    cal['year'] = 2022
+    # make month 1 equal to january, month 2 equal to february, etc.
+    cal['month'] = cal['month'].replace(1, 'January')
+    cal['month'] = cal['month'].replace(2, 'February')
+    cal['month'] = cal['month'].replace(3, 'March')
+    cal['month'] = cal['month'].replace(4, 'April')
+    cal['month'] = cal['month'].replace(5, 'May')
+    cal['month'] = cal['month'].replace(6, 'June')
+    cal['month'] = cal['month'].replace(7, 'July')
+    cal['month'] = cal['month'].replace(8, 'August')
+    cal['month'] = cal['month'].replace(9, 'September')
+    cal['month'] = cal['month'].replace(10, 'October')
+    cal['month'] = cal['month'].replace(11, 'November')
+    cal['month'] = cal['month'].replace(12, 'December')
+
+    # make a list of the titles who that have words in the ingridients column that can be found in the ing list
+    titles = []
+    for i in range(len(df)):
+        for j in range(len(ing)):
+            if any(word in df['Ingredients'][i] for word in ing[j]):
+                titles.append(df['Title'][i])
+                break
+
+    # create three new column into cal called 'breakfast', 'lunch' and 'dinner'
+    cal['breakfast'] = ''
+    cal['lunch'] = ''
+    cal['dinner'] = ''
+
+    # from the list titles randomly add or 0 or 1 itmes to the breakfast, lunch and dinner column
+    for i in range(len(cal)):
+        cal['breakfast'][i] = np.random.choice(titles, np.random.randint(0, 2))
+        cal['lunch'][i] = np.random.choice(titles, np.random.randint(0, 2))
+        cal['dinner'][i] = np.random.choice(titles, np.random.randint(0, 2))
+
+    # make the columns strings
+    cal['breakfast'] = cal['breakfast'].astype(str)
+    cal['lunch'] = cal['lunch'].astype(str)
+    cal['dinner'] = cal['dinner'].astype(str)
+
+    # eliminate the repeated titles
+    cal['breakfast'] = cal['breakfast'].drop_duplicates()
+    cal['lunch'] = cal['lunch'].drop_duplicates()
+    cal['dinner'] = cal['dinner'].drop_duplicates()
+
+    # eliminate the brackets
+    cal['breakfast'] = cal['breakfast'].str.replace('[', '')
+    cal['breakfast'] = cal['breakfast'].str.replace(']', '')
+    cal['lunch'] = cal['lunch'].str.replace('[', '')
+    cal['lunch'] = cal['lunch'].str.replace(']', '')
+    cal['dinner'] = cal['dinner'].str.replace('[', '')
+    cal['dinner'] = cal['dinner'].str.replace(']', '')
+
+    # replac Nan with 'No meal'
+    cal['breakfast'] = cal['breakfast'].replace(np.nan, 'No meal planned')
+    cal['lunch'] = cal['lunch'].replace(np.nan, 'No meal planned')
+    cal['dinner'] = cal['dinner'].replace(np.nan, 'No meal planned')
+
+    # merge breakfast, lunch and dinner into one column called 'meals'
+    cal['meals'] = cal['breakfast'] + cal['lunch'] + cal['dinner']
+
+    # ask the user to imput the month and day they want to see the meal plan for.
+    month = input('What month do you want to see the meal plan for? ')
+    day = input('What day do you want to see the meal plan for? ')
+
+    # show only the breakfast, lunch and dinner column for the month and day the user imputed
+    # if the value of the three is 'No meal planned' then print 'No meals planned'
+    if cal[(cal['month'] == month) & (cal['day'] == int(day))]['breakfast'].values == 'No meal planned' and \
+            cal[(cal['month'] == month) & (cal['day'] == int(day))]['lunch'].values == 'No meal planned' and \
+            cal[(cal['month'] == month) & (cal['day'] == int(day))]['dinner'].values == 'No meal planned':
+        print('No meals planned')
+        print('Press enter to retry')
+        input()
+
+        calendar()
+        
+    else:
+        print(cal[(cal['month'] == month) & (cal['day'] == int(day))][['breakfast', 'lunch', 'dinner']])
+
+    # ask the user to imput 1, 2 or 3 to see the breakfast, lunch or dinner recipe
+    # if the user inputs 1 the title of the breakfast will be equal to a variable called 'search'
+    # same for lunch and dinner
+    choice = input('What meal do you want to see the recipe for? 1 for breakfast, 2 for lunch and 3 for dinner ')
+    if choice == '1':
+        search = cal[(cal['month'] == month) & (cal['day'] == int(day))]['breakfast'].values
+    elif choice == '2':
+        search = cal[(cal['month'] == month) & (cal['day'] == int(day))]['lunch'].values
+    elif choice == '3':
+        search = cal[(cal['month'] == month) & (cal['day'] == int(day))]['dinner'].values
+    search = search.astype(str)
+    search = search[0]
+    search = search.replace("'", "")
+
+    # final print
+    print(df[df['Title'] == search][['Ingredients', 'Instructions']])
+
+    # tell the user to press enter to go to the main manu and if the du run function pickeat
+    print('Press enter to go to the main menu')
+    input()
+
+    pickeat()
+    
+
+
+def shoppingList():
+
+  ### ADDING TO THE SHOPPING LIST ###
+
+  # Creating a new empty list. 
+  basket = {}
+
+  # Initializing the variable that is going to be able to start adding the elements 
+  # into the list. In this case it is going to be 'yes', since the user is going to 
+  # either type yes or no to continue adding items.
+  edit = input("Do you want to delete or add elements from the shopping list? (add/delete)").lower()
+
+  # In a while loop we can implement the items in the list.
+  # While the previous variable is equal to yes, then...
+  if edit == 'add':
+    add = 'yes'
+    # In a while loop we can implement the items in the list.
+    # While the previous variable is equal to yes, then...
+    while add == 'yes':
+        # we ask the user for the item to add to the shopping list,
+        item = input('Enter an article to add to the shopping list:')
+        # we ask the user for the amount of the item to add to the shopping list.
+        amount = input('Enter the amount of ' + item + ' that you need: ')   
+
+        # Checking if the amount just inputed is numerical.
+        if amount.isnumeric() == True:
+          # If it is, we save it as a numerical value.
+          amountF = float(amount) 
+
+          # We check if the item is already in the list. 
+          if item in basket:
+            # If it is,
+            # we add to the amount of the item the new amount given from the user.
+            basket[item] += amountF
+
+          # If it is not,
+          else:
+            # we make sure to implement it in the list.
+            basket[item] = amountF
+
+        # Otherwise, if it is not numeric
+        while amount.isnumeric() != True:
+          # we print an error
+          print('the value insirted is not a number')
+          # and ask for the amount again.
+          amount = input('Enter the the amount of ' + item + ': ')
+
+
+        # We ask the user if they want to add more items in the list.
+        add = input('Do you want to add items to the list (Yes/No)? ').lower()
+
+    # If the answer is not yes, then...
+    else: 
+      # print the following message.
+      print('Added to your shopping list!')
+      edit = input("Do you want to delete or add elements from the shopping list? (add/delete/no)").lower()
+
+
+
+  ### DELETING FROM THE SHOPPONG LIST ###
+
+  # In a while loop we can implement the items in the list.
+  # While the previous variable is equal to yes, then...
+  if edit == 'delete':
+    delete = 'yes'
+    while delete == 'yes':
+        # we ask the user for the item to add to the shopping list and...
+        item = input('Enter an article to remove from the shopping list: ')
+
+        # We check if the value is already in the list.
+        # If it is,
+        if item in basket:
+          # we ask the user for the amount of the item to add to the shopping list.
+          amount = input('Enter the the amount to remove: ')
+
+          # Checking if the amount just inputed is numerical.
+          if amount.isnumeric() == True:
+            # If it is,
+            # then we save the input as a numerical value.
+            amountF = int(amount) 
+
+            if basket[item] > amountF:
+              # we add to the already saved amount of the item the new amount 
+              # given from the user.
+              basket[item] -= amountF
+            else:
+              basket.pop(item)
+
+          # Otherwise, (if the amount is not numeric)
+          while amount.isnumeric() != True:
+            # We print an error
+            print('the value insirted is not a number')
+            # and ask for the amount again.
+            amount = input('Enter the amount of ' + item + ': ')
+
+        # If it is not,
+        else:
+          # we make sure to implement the amount in the list.
+          print("The item is already not in the shopping list")
+          item = input('Enter an article to remove from the shopping list: ')
+
+        
+        # We ask the user if they want to add more items in the list.
+        delete = input('Do you want to delete other articles from the shopping list (Yes/No)?').lower()
+  
+    # If the answer is not yes, then print the following message.       
+    else:      
+      print('Removed from your shopping list!')
+      edit = input("Do you want to delete or add elements from the shopping list? (add/delete/no)").lower()
+
+
+  ### SHOWING THE SHOPPING LIST ###
+
+  # Asking the user if they want to see the whole shopping list.
+  showingB = input('Do you want to see what you have in the shopping list (Yes/No)?').lower()
+
+  # If the answer is 'yes'
+  if showingB == 'yes':
+    # for all the items saved in the shopping list
+    for item in basket:
+      # we print them and the amount saved. 
+      print(item, '\t', basket[item])
+
+  print('Press enter to go to the main menu')
+  input()
+  pickeat()
+
+
+
+def favourites():
+
+    ### ADDING TO THE FAVOURITES ###
+
+  # Creating the empty list.
+  favs = []
+
+  # Initializing the variable that is going to be able to start adding the elements 
+  # into the list. In this case it is going to be 'yes', since the user is going to 
+  # either type yes or no to continue adding items.
+  edit = input("Do you want to delete or add elements from the favouties? (add/delete)").lower()
+
+  # In a while loop we can implement the items in the list.
+  # While the previous variable is equal to yes, then...
+  if edit == 'add':
+    add = 'yes'
+  while add == 'yes':
+    # We ask the user for the recipe to input
+    item = input('Enter a recipe to add to the favourites: ')
+
+    # If the item inputed is already in the list
+    if item in favs:
+      # we print an error and
+      print("This recipe has already been added")
+      # ask if the user wants to add a different recipe.
+      add = input('Do you want to add other recipes (Yes/No)? ').lower()
+
+    # Otherwise, (if the recipe is not in the list)
+    else:
+      # we add the item to the list.
+      favs.append(item)
+      # We, then, ask the user if they want to add more recipes
+      add = input('Do you want to add other recipes (Yes/No)? ').lower()
+  
+  # Otherwise, (if the answer is not yes)
+  else:
+    # we print this message.
+    print('Added to your favourites!')
+    edit = input("Do you want to delete or add elements from the favouties? (add/delete/no)").lower()
+
+
+ ### DELETING FROM THE FAVS ###
+
+  # In a while loop we can implement the items in the list.
+  # While the previous variable is equal to yes, then...
+  if edit == 'delete':
+    delete = 'yes'
+    while delete == 'yes':
+      # We ask the user for the recipe to input
+      item = input('Enter a recipe to remove from the favourites: ')
+
+      # If the item inputed is already in the list
+      if item in favs:
+        # we add the item to the list.
+        favs.remove(item)
+        # We, then, ask the user if they want to add more recipes
+        delete = input('Do you want to remove other recipes (Yes/No)? ').lower()
+
+      # Otherwise, (if the recipe is not in the list)
+      else:
+        # we print an error and
+        print("This recipe is already not in the favourites")
+        # ask if the user wants to add a different recipe.
+        edit = input('Do you want to add it to the recipes? Or keep on deleting (add/delete)?').lower()
+  
+    # Otherwise, (if the answer is not yes)
+    else:
+      # we print this message.
+      print('Removed to your favourites!')
+      edit = input("Do you want to delete or add elements from the favouties? (add/delete)").lower()
+
+  ### SHOWING THE FAVOURITES ###
+
+  # Asking the user if they want to see the saved list of favourites. 
+  showingF = input('Do you want to see what you have in your favourites (Yes/No)?').lower()
+  
+  # If the asnwer if yes,
+  if showingF == 'yes':
+    # for all the saved items in the list
+    for item in favs:
+      # we print them, to show them to the user.
+      print(item)
+
+    print('Press enter to go to the main menu')
+    input()
+    pickeat()
+
+
+
+#ask the user to input their
+def login():
+    #ask the user to input their username
+    username = input('Please enter your username ')
+    #ask the user to input their password
+    password = input('Please enter your password ')
+    #if the username and password are correct the program will run the function 
+    if username == 'Tony' and password == '#1':
+        pickeat()
+    #if the username and password are incorrect the program will ask the user to try again
+    else:
+        print('Incorrect username or password')
+        login()
+
+count = 0
+
+
+
+def pickeat():
+    global count
+    count = count + 1
+    if count == 1:
+        count = count + 1
+        login()
+    else:
+        print("Welcome to Pickeat!")
+        print("What is it that you would like to do today? (1/2/3/4/5)")
+        choice = input("1. Look at your meal plan \n2. Access your pantry \n3. Add to shopping list \n4. Add to favourites \n5. Exit \n ")
+        if choice == "1":
+            calendar()
+        elif choice == "2":
+            pantry()
+        elif choice == "3":
+            shoppingList()
+        elif choice == "4":
+            favourites()
+        elif choice == "5":
+            exit()
