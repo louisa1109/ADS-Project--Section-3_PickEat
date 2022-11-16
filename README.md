@@ -18,8 +18,11 @@ To be able to run our program, make sure you have the following things installed
 - Libraries. In order to run the program, the following three libraries were used: pandas, numpy & io.
 
 In order to install the library type the following command:
+
 ```pip install pandas```
+
 ```pip install numpy```
+
 ```pip install io```
 
 After following these steps, you can now open the file and run the program.
