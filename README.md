@@ -28,7 +28,7 @@ In order to install the library type the following command:
 After following these steps, you can now open the file and run the program.
 
 # Usage
-When a user join our code platform, he is initially asked for his username and password, and welcomed. *check*
+When a user join our code platform, he is initially asked for his username and password, and welcomed. *check all*
 Next, the user will be asked what he would like to do during that day, giving five options to choose from. The user will have to input the number of the action he wants to perform. 
 The actions are:
 1. Look at your meal plan.
@@ -51,10 +51,43 @@ Lastly, the platfrom will ask the user if he wants to see his pantry, only in th
 3. If the third option is chosen (Add to shopping list), the platform will ask the user if he wants to add or delete items from the shopping list. 
 In either case the user will be asked to input the article and the amount of it he needs. 
 After adding or removing each article, the platform will ask the user whether or not he wants to continue.
-Lastly, the platfrom will ask the user if he wants to see his pantry, only in the case where he has previously decided to stop adding and removing elements.
+Lastly, the platfrom will ask the user if he wants to see his shopping list, only in the case where he has previously decided to stop adding and removing items.
 
+4. If the fourth option is chosen (Add to favourites), the platform will ask the user if he wants to add or delete recipes from the favourites. In either case it will be asked what specific recipe he wants to process. 
+After adding or removing each recipe, the platform will ask the user whether or not he wants to continue.
+Lastly, the platfrom will ask the user if he wants to see his favourites, only in the case where he has previously decided to stop adding and removing recipes.
 
+5. If the fifth option is chosen (Exit), the user will just have to press Enter to return the main menu.
 
 
 # Extra information
+In order to carry out our objective, we have used the following data structures:
+
+- Linked Lists; *comment here*
+- Hash tables;
+- Lists;
+
+
+
+
+And the following Algorithms:
+
+- Insertion 
+- Deletion
+- Searching
+
 # Credits
+The authors of this project are:
+
+Louisa Schiefer
+
+Anna Piccoli
+
+Paolo Bianchi
+
+Toni Heresi
+
+Hugo Suarez
+
+Alejandra Paulino 
+
