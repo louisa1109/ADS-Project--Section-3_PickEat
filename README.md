@@ -48,7 +48,10 @@ After this, the user will be asked to input Enter to go back to the main menu an
 After adding or removing each article, the platform will ask the user whether or not he wants to continue.
 Lastly, the platfrom will ask the user if he wants to see his pantry, only in the case where he has previously decided to stop adding and removing elements.
 
-3. If the third option is chosen (Add to shopping list)
+3. If the third option is chosen (Add to shopping list), the platform will ask the user if he wants to add or delete items from the shopping list. 
+In either case the user will be asked to input the article and the amount of it he needs. 
+After adding or removing each article, the platform will ask the user whether or not he wants to continue.
+Lastly, the platfrom will ask the user if he wants to see his pantry, only in the case where he has previously decided to stop adding and removing elements.
 
 
 
