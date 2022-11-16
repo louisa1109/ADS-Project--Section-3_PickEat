@@ -1,2 +1,2 @@
-# ADS-Project--Section-3_PickEat
+# ADS Project name: PickEat
 PickEat- ADS Project GitHub
