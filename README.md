@@ -79,15 +79,11 @@ And the following Algorithms:
 # Credits
 The authors of this project are:
 
-Louisa Schiefer
 
-Anna Piccoli
-
-Paolo Bianchi
-
-Toni Heresi
-
-Hugo Suarez
-
-Alejandra Paulino 
+- Louisa Schiefer
+- Anna Piccoli
+- Paolo Bianchi
+- Toni Heresi
+- Hugo Suarez
+- Alejandra Paulino
 
