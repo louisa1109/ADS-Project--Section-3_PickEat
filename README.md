@@ -5,7 +5,7 @@ With this tool you will be able to organise your daily life by displaying fast a
 Our app has four main functions:
 1. It allows the user to have a better meal organisation thanks to the available calendar.
 2. The app displays recipes based on the ingredients that the user provides.
-3. It allows the user to search among the available recipes and chose the one they prefer.
+3. It allows the user to search among the available recipes and chose the one he prefers.
 4. It allows the user to store the ingredients in a shopping list.
 
 # Installation 
@@ -13,7 +13,7 @@ For the code provided it is necessary to import a given dataset.
 
 To be able to run our program, make sure you have the following things installed:
 
-- Python Programming Languange. Versions between 3.10 and 3.11 are suitable. 
+- Python Programming Languange. Versions between 3.10 and 3.11 are suitable. ?????
 
 - Libraries. In order to run the program, the following three libraries were used: pandas, numpy & io.
 
@@ -28,8 +28,8 @@ In order to install the library type the following command:
 After following these steps, you can now open the file and run the program.
 
 # Usage
-When a user join our code platform, he is initially asked for his username and password, and welcomed. *check all*
-Next, the user will be asked what he would like to do during that day, giving five options to choose from. The user will have to input the number of the action he wants to perform. 
+When a user joins our code platform, he is initially asked for his username and password, and welcomed. *check all*
+Next, the user is asked what he would like to do during that day, ans is provided with five options to choose from. The user will have to input the number of the action he wants to perform. 
 The actions are:
 1. Look at your meal plan.
 2. Access your pantry.
@@ -42,9 +42,9 @@ After they made their choice, the respective action will be carried out. The use
 1. If the first option is chosen (Look at your meal plan), the platform will ask about the month and day he wants to see specifically.
 Next, the user will be asked to input the meal he wants to see (choose between breakfast 1, lunch 2 and dinner 3).
 The platform will display the recipes available, how to perform them and the ingredients needed.
-After this, the user will be asked to input Enter to go back to the main menu and start the process all over again.
+After this, the user will be asked to input 'Enter' to go back to the main menu and start the process all over again.
 
-2. If the second option is chosen (Access your pantry), the platform will ask the user if he wants to add or delete items from the pantry. In either case it will be asked what specific artcicle and the amount of it that he wants to process. 
+2. If the second option is chosen (Access your pantry), the platform will ask the user if he wants to add or delete items from the pantry. In either case it will be asked what specific article and the amount of it that he wants to process. 
 After adding or removing each article, the platform will ask the user whether or not he wants to continue.
 Lastly, the platfrom will ask the user if he wants to see his pantry, only in the case where he has previously decided to stop adding and removing elements.
 
@@ -57,7 +57,7 @@ Lastly, the platfrom will ask the user if he wants to see his shopping list, onl
 After adding or removing each recipe, the platform will ask the user whether or not he wants to continue.
 Lastly, the platfrom will ask the user if he wants to see his favourites, only in the case where he has previously decided to stop adding and removing recipes.
 
-5. If the fifth option is chosen (Exit), the user will just have to press Enter to return the main menu.
+5. If the fifth option is chosen (Exit), the user will just have to press 'Enter' to return the main menu.
 
 
 # Extra information
