@@ -75,22 +75,19 @@ In general the program is going to display a maximum of 10 recipes based on the 
 
 
 # Extra information
-In order to carry out our objective, we have used the following data structures:
+In order to carry out our objective, we have used the following Data Structures:
 
 - Linked Lists; 
 - Hash tables;
 - Lists;
 
-
-
-
 And the following Algorithms:
 
-- Insertion 
-- Deletion
+- Insertion; used to insert items from pantry, favourites, and shopping list. 
+- Deletion; used to deleted items from pantry, favourites, and shopping list. 
 - Searching
-- QuickSort Algorithm
-- Greedy Method
+- QuickSort Algorithm; used to sort the recipes from most expensive to least expensive. 
+- Greedy Method; used to look for the best combination of meals available given the limited items in the pantry.
 
 # Credits
 The authors of this project are:
