@@ -77,7 +77,7 @@ In general the program is going to display a maximum of 10 recipes based on the 
 # Extra information
 In order to carry out our objective, we have used the following data structures:
 
-- Linked Lists; *comment here*
+- Linked Lists; 
 - Hash tables;
 - Lists;
 
@@ -89,6 +89,8 @@ And the following Algorithms:
 - Insertion 
 - Deletion
 - Searching
+- QuickSort Algorithm
+- Greedy Method
 
 # Credits
 The authors of this project are:
