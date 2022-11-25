@@ -86,7 +86,7 @@ And the following Algorithms:
 - Insertion; used to insert items from pantry, favourites, and shopping list. 
 - Deletion; used to deleted items from pantry, favourites, and shopping list. 
 - Searching
-- QuickSort Algorithm; used to sort the recipes from most expensive to least expensive. 
+- QuickSort Algorithm; used to sort the recipes from most expensive to least expensive. Used to order the recepies by difficulty. 
 - Greedy Method; used to look for the best combination of meals available given the limited items in the pantry.
 
 # Credits
