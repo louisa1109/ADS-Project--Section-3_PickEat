@@ -4,7 +4,6 @@ import numpy as np
 import random
 df = pd.read_csv(io.BytesIO(uploaded['df.csv']))
 
-
 def ing(df):
     #due to the lack of ingridients in the pantry this function
     #will be used to add a lot of ingridients for convinience
@@ -61,6 +60,7 @@ def greedy(pan,df):
 
     #this is where the greedy algorithm come into effect
     sum_greed = 0
+
     #the algorithm will go through the value if every key in the dictionary
     for key, value in greedy.items():
 
@@ -474,7 +474,7 @@ def discover(df):
 
                 def comb():
                     #this means that the user want to filter by more than 1 filter, so they have to be combined.
-                    q = input("what do you want to filter by? \n1. Type of ingredients? \n2. difficulty? \n3. budget \n (separate the number corresponding to each category with a comma)")
+                    q = input("What do you want to filter by (1/2/3)? \n1. Type of ingredients \n2. Difficulty \n3. Budget \n (separate the number corresponding to each category with a comma)")
                     #makeing q a string we search what numbers the user inputed, showing us what functions the user wants to filter by
                     q = str(q)
 
@@ -484,7 +484,7 @@ def discover(df):
 
                     if "2" in q:
                         b = difficulty(1)
-                        
+
                     if "3" in q:
                         t = cost(1)
 
@@ -499,6 +499,7 @@ def discover(df):
                             if i in b:
                                 if i in t:
                                     final.append(i)
+
                     elif "1" in q and "2" in q:
                         for i in a:
                             if i in b:
@@ -518,12 +519,14 @@ def discover(df):
                     #a variable named f_print is created, with it being equal to a maximum of 10 random titles of the
                     #final list
                     f_print = random.sample(final, min(len(final), 10))
+
                     #in the case that the final list is empty, the user will be asked to try again with different filters.
                     if len(final) <= 0:
                         print("No recipes found, with these filters, try again!")
                         print('\n Press enter to retry')
                         input()
                         comb()
+
                     #f_print is displayed, and the user is then redirected back to the homepage.
                     else:
                         print("Here are 10 random recipes that match your filters!")
@@ -531,8 +534,12 @@ def discover(df):
                         print('\n Press enter to go to the main menu')
                         input()
                         pickeat()
+
                 comb()
+
     normal_Discover()
+
+
 def calendar(df, greed):
     # only keep columns 'Title', 'Ingredients', 'Instructions' will be kept from the dataset
     df = df[['Title', 'Ingredients', 'Instructions']]
@@ -576,39 +583,50 @@ def calendar(df, greed):
 
     #this for loop will be used to add the meals into the calendar.
     for i in range(len(cal)):
+
         #as soon as every item from the titles list is added the loop will break
         if len(titles) == 0:
             break
+
         #to start of with, each meal time for every day will have a 33% probability of having no meal planned for that
         #day to simulate the user costumizing for when they want to plan the meals.
         if random.random() < 0.33:
             cal.loc[i, 'breakfast'] = "no meal planned"
+
         #Otherwise the item at position 0 in titles will be the first to be added into the column
         else:
             cal.at[i, 'breakfast'] = titles[0]
+
             #if the meal is indeed added, then it will be removed from the list, making the sbusecuent item be at
             #position 0
             if titles[0] in df['Title'].values:
                 titles.pop(0)
+
         #this has to be checked each time in order to break the loop at the appropriate time
         if len(titles) == 0:
             break
+
         #the same process is used for the lunch and dinner times.
         if random.random() < 0.33:
             cal.loc[i, 'lunch'] = "no meal planned"
+
         else:
             cal.at[i, 'lunch'] = titles[0]
-            if titles[0] in df['Title'].values:
-                titles.pop(0)
-        if len(titles) == 0:
-            break
-        if random.random() < 0.33:
-            cal.loc[i, 'dinner'] = "no meal planned"
-        else:
-            cal.at[i, 'dinner'] = titles[0]
+
             if titles[0] in df['Title'].values:
                 titles.pop(0)
 
+        if len(titles) == 0:
+            break
+
+        if random.random() < 0.33:
+            cal.loc[i, 'dinner'] = "no meal planned"
+
+        else:
+            cal.at[i, 'dinner'] = titles[0]
+
+            if titles[0] in df['Title'].values:
+                titles.pop(0)
 
     #A variable called f_meal was created, the purpose of this variable is to be equivalent to the day that the earliest
     #meal can be found inside the calendar
@@ -628,8 +646,9 @@ def calendar(df, greed):
 
     #the user has the option to either view the calendar containing the meal plan, or edit said meal plan.
     #they select wither of this option by inputting the corresponding number
-    print("Welcome to the meal plann.\n what do you want to do?\n")
-    ch = input("1. View calendar\n2. edit calendar\n3. exit\n")
+    print("Welcome to the meal plann.\n what do you want to do (1/2/3)?\n")
+    ch = input("1. View calendar\n2. Edit calendar\n3. Exit\n")
+
     if ch == "1":
         #this choice corresponds to choosing to view the calendar.
         #the first thing the user will be greated with is a vsiual representation of the planned meals they have at each
@@ -639,18 +658,18 @@ def calendar(df, greed):
 
         #The progeam will print the range of dates in which the user has planned meals
         #the user then selects the month and day of the meal that they wish to see in greater detail.
-        print('your meal plan ranges from', f_meal, 'to', l_meal)
+        print('Your meal plan ranges from', f_meal, 'to', l_meal)
         print('What month and day do you want to edit? ')
-        month = input('Month: ')
+        month = input('Month, spelled out: ')
         month = month.capitalize()
-        day = input('Day: ')
+        day = input('Day, in numbers: ')
+
         #if the value inputed by the user is incoherent, then the program will ask the user to enter the month and day again,
         while month not in cal['month'].values:
             print("That month or day is not in the calendar, please input a valid one")
-            month = input('Month: ')
+            month = input('Month, spelled out: ')
             month = month.capitalize()
-            day = input('Day: ')
-
+            day = input('Day, in numbers: ')
 
         #The user will then be shown the titles for the breakfast, lunch and dinner for that day.
         #if there is no programmed meals that day the program will rerun the calendar function.
@@ -669,21 +688,24 @@ def calendar(df, greed):
         #The user will be asked what specific meal they want to see in greater detail. The title of this meal will
         #then be set equal to a varaible named 'search'.
         choice = input(
-            'What meal do you want to see the recipe and ingridients for? 1 for breakfast, 2 for lunch and 3 for dinner ')
+            'What meal do you want to see the recipe and ingridients for (1/2/3)? 1 For breakfast, 2 For lunch and 3 For dinner ')
         if choice == '1':
             search = cal[(cal['month'] == month) & (cal['day'] == int(day))]['breakfast'].values
+
         elif choice == '2':
             search = cal[(cal['month'] == month) & (cal['day'] == int(day))]['lunch'].values
+
         elif choice == '3':
             search = cal[(cal['month'] == month) & (cal['day'] == int(day))]['dinner'].values
+
         else:
             print('Invalid input')
             calendar()
+
         #cleaning the search variable
         search = search.astype(str)
         search = search[0]
         search = search.replace("'", "")
-
 
         #The program will search for the title that matches the variable search, and print its name
         #aswell as its corresponding ingridients and instructions.
@@ -700,29 +722,34 @@ def calendar(df, greed):
         print(cal[['month', 'day', 'breakfast', 'lunch', 'dinner']][cal['breakfast'] != ''].to_string(index=False))
 
         #same as previously the user will be shown the range of their plan, and asked to select their desired date.
-        print('your meal plan ranges from', f_meal, 'to', l_meal)
+        print('Your meal plan ranges from', f_meal, 'to', l_meal)
         print('What month and day do you want to edit? ')
-        month = input('Month: ')
+        month = input('Month, spelled out: ')
         month = month.capitalize()
-        day = input('Day: ')
+        day = input('Day, in numbers: ')
+
         while month not in cal['month'].values:
             print("That month or day is not in the calendar, please input a valid one")
-            month = input('Month: ')
+            month = input('Month, spelled out: ')
             month = month.capitalize()
-            day = input('Day: ')
+            day = input('Day, in numbers: ')
 
         #The titles of the meals at each meal time will be shown for this date
         #subsecuently the user will be asked wether they wish to remove one of these planned meals, or add/edit them
         print('This are the meals planned for this day:\n', cal[(cal['month'] == month) & (cal['day'] == int(day))][['breakfast', 'lunch', 'dinner']])
-        ch1 = input('What do you want to do? 1. Remove meal 2. Add/edit a meal\n')
+        ch1 = input('What do you want to do (1/2)? 1. Remove meal 2. Add/edit a meal\n')
+
         if ch1 == '1':
             #this choice means the user wants to delete one of the meals
-            meal = input('What meal do you want to remove? 1. Breakfast 2. Lunch 3. Dinner\n')
+            meal = input('What meal do you want to remove (1/2/3)? 1. Breakfast 2. Lunch 3. Dinner\n')
+
             #depending on the number, the values in either breakfast, lunch or dinner will be replaced with "no meal planned"
             if meal == '1':
                 cal.loc[(cal['month'] == month) & (cal['day'] == int(day)), 'breakfast'] = 'no meal planned'
+
             elif meal == '2':
                 cal.loc[(cal['month'] == month) & (cal['day'] == int(day)), 'lunch'] = 'no meal planned'
+
             elif meal == '3':
                 cal.loc[(cal['month'] == month) & (cal['day'] == int(day)), 'dinner'] = 'no meal planned'
 
@@ -731,32 +758,35 @@ def calendar(df, greed):
             #this coice means the user wants to add/edit the meals
             #the user will be asked if the meal they want to add/edit will come from their favorites list
             #or if they'd rather look for one by entering a name/keyword
-            ch2 = input('do you want to:\n1. add a meal from your favorites\n2. Enter the name of a meal\n')
+            ch2 = input('Do you want to (1/2):\n1. add a meal from your favorites\n2. Enter the name of a meal\n')
+
             if ch2 == '1':
                 #this means the user wants to use their favorites list, so the favorites function is ran, returning the
                 #list of the user's favorites.
                 options = favourites(df, 1)
-                print("list of your favorites:\n")
+                print("List of your favorites:\n")
+
                 #the favorites will be printed in a list enumerating them
                 for i in range(len(options)):
                     print(i+1, options[i])
                 #the user is aske wich meal it is they want to add, and the corresponding choice is made a variable
                 #equal to the title of the meal
-                ch3 = input('What meal do you want to add?\n')
+                ch3 = input('What meal do you want to add? Please select the number corrisponding to the meal\n')
                 chosen = options[int(ch3)-1]
                 #the user is asked what meal time they want to replace this title into
-                ch4 = input('What meal time do you want to add this meal to? 1. Breakfast 2. Lunch 3. Dinner\n')
+                ch4 = input('What meal time do you want to add this meal to (1/2/3)? 1. Breakfast 2. Lunch 3. Dinner\n')
                 chosen = chosen.replace("'", "")
                 chosen = str(chosen)
 
                 #Depending on their choice the value in this meal time will now be equal to the vale of the chosen title
                 if ch4 == '1':
                     cal.loc[(cal['month'] == month) & (cal['day'] == int(day)), 'breakfast'] = chosen
+
                 elif ch4 == '2':
                     cal.loc[(cal['month'] == month) & (cal['day'] == int(day)), 'lunch'] = chosen
+
                 elif ch4 == '3':
                     cal.loc[(cal['month'] == month) & (cal['day'] == int(day)), 'dinner'] = chosen
-
 
             elif ch2 == '2':
                 #This choice indicates that the user want to enter a key word to edit their meal plan with
@@ -764,41 +794,51 @@ def calendar(df, greed):
                 kword = input('Give the name of a meal, or a keyword\n')
                 #a list containing all of the values found in the Title column containing said word is made
                 keywords = df[df['Title'].str.contains(kword)]['Title'].values
+
                 #if the list is empty, the user will be asked to try with another word
                 while len(keywords) == 0:
                     print('No meals found, please try again')
-                    kword = input('Give the name of a meal, or a keyword\n')
+                    kword = input('Give the name of a meal, or a keyword. Try to write it either with the first letter upper case or everything lower case\n')
                     keywords = df[df['Title'].str.contains(kword)]['Title'].values
 
                 #an enumarated list with all of the titles containing this keyword is printed and enumerated.
-                print("here are the meals that contain the key word", kword, ":\n")
+                print("Here are the meals that contain the key word", kword, ":\n")
+
                 for i in range(len(keywords)):
                     print(i+1, keywords[i])
+
                 #the user is asked to select the word they c
-                ch3 = input('What meal do you want to add?\n')
+                ch3 = input('What meal do you want to add? Please select the number corrisponding to the meal\n')
                 chosen = keywords[int(ch3) - 1]
                 # the user is asked what meal time they want to replace this title into
-                ch4 = input('What meal time do you want to add this meal to? 1. Breakfast 2. Lunch 3. Dinner\n')
+                ch4 = input('What meal time do you want to add this meal to (1/2/3)? 1. Breakfast 2. Lunch 3. Dinner\n')
                 chosen = chosen.replace("'", "")
                 chosen = str(chosen)
+
                 # Depending on their choice the value in this meal time will now be equal to the vale of the chosen title
                 if ch4 == '1':
                     cal.loc[(cal['month'] == month) & (cal['day'] == int(day)), 'breakfast'] = chosen
+
                 elif ch4 == '2':
                     cal.loc[(cal['month'] == month) & (cal['day'] == int(day)), 'lunch'] = chosen
+
                 elif ch4 == '3':
                     cal.loc[(cal['month'] == month) & (cal['day'] == int(day)), 'dinner'] = chosen
 
     #Now that the meal plan has been updated the user can either see the updated meal plan or go back to the main menu
-    print("the meal plan has been updated!")
+    print("The meal plan has been updated!")
     print('Press 1 to see the meal plan calendar or enter to go to the main menu')
     ch5 = input()
+
     if ch5 == '1':
         print(cal[['month', 'day', 'breakfast', 'lunch', 'dinner']][cal['breakfast'] != ''].to_string(index=False))
         print('Press enter to go to the main menu')
         input()
+
     else:
         pickeat()
+
+
 def shoppingList():
     ### ADDING TO THE SHOPPING LIST ###
 
@@ -919,6 +959,8 @@ def shoppingList():
     print('Press enter to go to the main menu')
     input()
     pickeat()
+
+
 def favourites(df, c):
     ### ADDING TO THE FAVOURITES ###
 
@@ -930,11 +972,14 @@ def favourites(df, c):
     #make favs[0] the actual list
     favs = favs[0]
     print('your favorites meals:')
+
     for item in favs:
         # we print them, to show them to the user.
         print(item)
+
     if c == 1:
         return favs
+
     elif c == 0:
         # Initializing the variable that is going to be able to start adding the elements
         # into the list. In this case it is going to be 'yes', since the user is going to
@@ -945,6 +990,7 @@ def favourites(df, c):
         # While the previous variable is equal to yes, then...
         if edit == 'add':
             add = 'yes'
+
         while add == 'yes':
             # We ask the user for the recipe to input
             item = input('Enter a recipe to add to the favourites:\n')
@@ -975,6 +1021,7 @@ def favourites(df, c):
         # While the previous variable is equal to yes, then...
         if edit == 'delete':
             delete = 'yes'
+
             while delete == 'yes':
                 # We ask the user for the recipe to input
                 item = input('Enter a recipe to remove from the favourites: ')
@@ -1006,6 +1053,7 @@ def favourites(df, c):
 
         # If the asnwer if yes,
         if showingF == 'yes':
+
             # for all the saved items in the list
             for item in favs:
                 # we print them, to show them to the user.
@@ -1019,21 +1067,26 @@ def favourites(df, c):
             print('Press enter to go to the main menu')
             input()
             pickeat()
+
+
 def login():
     #the user will be asked to input their username and password
     username = input('Please enter your username ')
     password = input('Please enter your password ')
+
     #This example assumes that the user already has an account with this password,
     #so if the user types the appropriate credentials they will be directed to the homepage
     if username == 'Tony' and password == '#1':
         pickeat()
+
     #if the username and password are incorrect the program will ask the user to try again by rerunning this function
     else:
         print('Incorrect username or password')
         login()
 
-
 count = 0
+
+
 def pickeat():
     #this function will work as the homepage of the app, form where the user can access all the diffrent parts of the app
 
@@ -1050,6 +1103,7 @@ def pickeat():
     #for count increases and aslong as it's equal to 1 it'll run the login.
     global count
     count = count + 1
+
     while count == 1:
         count = count + 1
         login()
@@ -1061,16 +1115,22 @@ def pickeat():
     #this will cause the desired function to be run.
     choice = input(
         "1. Look at your meal plan \n2. Access your pantry \n3. Edit your shopping list \n4. Edit your favourites \n5. Discover meals \n6. Exit \n ")
+    
     if choice == "1":
         calendar(df, greed)
+
     elif choice == "2":
         pantry(pan)
+
     elif choice == "3":
         shoppingList()
+
     elif choice == "4":
         favourites(df, 0)
+
     elif choice == "5":
         discover(df)
+
     elif choice == "6":
         exit()
  
