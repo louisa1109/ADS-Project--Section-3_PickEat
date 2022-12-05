@@ -12,6 +12,7 @@ Our app has four main functions:
 For the code provided it is necessary to import a given dataset, 'df'. 
 
 ![Screen Shot 2022-12-05 at 5 05 43 PM](https://user-images.githubusercontent.com/118349858/205684634-f9c4a4f6-b059-4c8a-aa71-2997043ae205.png)
+
 ![Screen Shot 2022-12-05 at 5 07 33 PM](https://user-images.githubusercontent.com/118349858/205685027-90eccb38-4042-44c2-95a8-f7d5b0f6c348.png)
 
 To be able to run our program, make sure you have the following things installed:
@@ -40,6 +41,7 @@ After following these steps, you can now run the program.
 
 # Usage
 When you are going to join our code platform, you are initially asked for the username and password, and welcomed. 
+
 ![Screen Shot 2022-12-05 at 5 10 39 PM](https://user-images.githubusercontent.com/118349858/205685755-fe11adfb-2eda-4cc8-874e-2fdf47fcbc3b.png)
 
 ![Screen Shot 2022-12-05 at 5 10 47 PM](https://user-images.githubusercontent.com/118349858/205685759-856ea3fb-dab9-47a1-9aef-974ae0653a15.png)
@@ -63,15 +65,14 @@ The actions are:
 
 After you made your choice, the respective action will be carried out. Then, you will be asked other questions based on the previous selection.
 
-If you chose option 1, "Look at your meal plan", then:
+## 1. "Look at your meal plan":
 
 The platform will ask about if you either want to 1. View the calendar, 2. Edit the calendar or 3. Exit.
 
 ![Screen Shot 2022-12-05 at 5 20 07 PM](https://user-images.githubusercontent.com/118349858/205687668-d6044909-6c56-48b0-b9ee-8acabd1b06d8.png)
 
 
-
-##1. "View the calendar": 
+a. "View the calendar": 
 
 You'll first be shown the calendar planed, then you will choose the specific day that you want to see (month spelled out and the day in numbers).
 
@@ -93,7 +94,7 @@ In this cacse, if you choose lunch (2), then you'll be shown this:
 
 You'll have to press enter, once you are done.
 
-2. "Edit the calendar":
+b. "Edit the calendar":
 
 You'll first be shown the calendar planed, then you will choose the specific day that you want to see (month spelled out and the day in numbers).
 
@@ -109,7 +110,7 @@ Then, you'll be asked to either: 1. Remove a meal or 2. add/edit a meal.
 
 ![Screen Shot 2022-12-05 at 5 40 21 PM](https://user-images.githubusercontent.com/118349858/205692739-a5f64f16-e49c-4494-b330-68eda7596a5d.png)
 
-1. "Remove a meal":
+- "Remove a meal":
 
 The machine is going to ask you which meal you would like to remove, choose between 1. breakfast, 2. lunch and 3. dinner. If, for example, you choose lunch this would be the output:
 
@@ -119,7 +120,7 @@ The machine is going to ask you which meal you would like to remove, choose betw
 
 You'll have to press enter, once you are done.
 
-2. "add/edit a meal":
+- "add/edit a meal":
 
 You'll be asked to either 1. add a meal from your favourites or 2. enter the name of the meal.
 
@@ -155,7 +156,7 @@ You'll have to press enter, once you are done.
 
 
 
-##2. "Access the pantry":
+## 2. "Access the pantry":
 
 Firstly, the program will show you the pantry. 
 
@@ -163,7 +164,7 @@ Firstly, the program will show you the pantry.
 
 Then, the platform will ask if you want to "add" or "delete" items from the pantry. You have to spell out the option.
 
-1. "add":
+a. "add":
 You will be asked what specific article to add 
 
 ![Screen Shot 2022-12-05 at 6 03 05 PM](https://user-images.githubusercontent.com/118349858/205697727-effa6111-d561-4ca7-81a9-4af58a433c9a.png)
@@ -174,7 +175,7 @@ and the amount of it that you want to process.
 
 Then, you'll be asked if you want to add more or not (yes/no). 
 
-2. "delete":
+b. "delete":
 
 You will be asked what specific article to delete
 
@@ -197,13 +198,13 @@ Once everything is done, you'll be asked if you want to see the pantry.
 
 
 
-##3. "Edit your shopping list":
+## 3. "Edit your shopping list":
 
 The platform will ask if you want to "add" or "delete" items from the shopping list. You have to spell out the option.
 
 ![Screen Shot 2022-12-05 at 6 11 04 PM](https://user-images.githubusercontent.com/118349858/205699434-e87be55e-d4ce-439a-ab25-139af9ec6fd2.png)
 
-1. "add":
+a. "add":
 
 You will be asked to input the article to add
 
@@ -215,7 +216,7 @@ and the amount of it he needs.
 
 You'll also be asked if you want to add more. (yes/no)
 
-2. "delete":
+b. "delete":
 
 You will be asked to input the article to delete
 
@@ -243,7 +244,7 @@ Then, the platform will ask if you wants to "add" or "delete" recipes from the f
 
 ![Screen Shot 2022-12-05 at 6 21 15 PM](https://user-images.githubusercontent.com/118349858/205701570-d89a85ed-488f-4c71-82c2-717427294566.png)
 
-1. "add":
+a. "add":
 
 You will be asked to input the meal to add
 
@@ -255,7 +256,7 @@ and a check if you are sure to add the recipe. There you have to enter either ye
 
 You'll also be asked if you want to add more. (yes/no)
 
-2. "delete":
+b. "delete":
 
 You will be asked to input the meal to delete
 
@@ -279,7 +280,7 @@ The program will ask you if you would like to 1. See random recipes or 2. be mor
 
 ![Screen Shot 2022-12-05 at 6 30 31 PM](https://user-images.githubusercontent.com/118349858/205703350-88fbbb54-f1eb-4b4a-acf6-fa3b1f6a9f16.png)
 
-1. "See random recipes":
+a. "See random recipes":
 
 You'll be shown 10 random recipes. 
 
@@ -287,19 +288,19 @@ You'll be shown 10 random recipes.
 
 Once you are done, press enter.
 
-2. "Be more specific":
+b. "Be more specific":
 
 You'll be shown 4 different options 1. Filter by type of ingredients, 2. Filter by difficulty level, 3. Filter by budget, and 4. Filter by a combination of these.
 
 ![Screen Shot 2022-12-05 at 6 33 37 PM](https://user-images.githubusercontent.com/118349858/205703922-ef6a9204-2357-4708-a76b-f30eca2dff65.png)
 
-a) "Filter by type of ingredients":
+- "Filter by type of ingredients":
 
 There are three proposed options: 1. lactose free, 2. vegetarian, 3. gluten free or 4. input specific ingredient. 
 
 ![Screen Shot 2022-12-05 at 6 35 27 PM](https://user-images.githubusercontent.com/118349858/205704277-c5f6e912-d4a0-4856-aafe-44a2a82576f9.png)
 
-- "lactose free":
+1. "lactose free":
 
 You'll be shown 10 random recipes with this filter.
 
@@ -307,7 +308,7 @@ You'll be shown 10 random recipes with this filter.
 
 Once you are done, press enter.
 
-- "vegetarian":
+2. "vegetarian":
 
 You'll be shown 10 random recipes with this filter. 
 
@@ -315,13 +316,15 @@ You'll be shown 10 random recipes with this filter.
 
 Once you are done, press enter.
 
-- "gluten free":
+3. "gluten free":
 
+You'll be shown 10 random recipes with this filter. 
 
+![Screen Shot 2022-12-05 at 7 25 29 PM](https://user-images.githubusercontent.com/118349858/205713560-12069569-698c-400e-bfeb-263ce07669f6.png)
 
 Once you are done, press enter.
 
-- "input specific ingredient":
+4. "input specific ingredient":
 
 ![Screen Shot 2022-12-05 at 6 40 14 PM](https://user-images.githubusercontent.com/118349858/205705198-47cdf37e-f798-4c3b-a6be-51d1d6e72744.png)
 
@@ -331,13 +334,13 @@ You'll be shown 10 random recipes with this filter.
 
 Once you are done, press enter.
 
-b) "Filter by difficulty level". There are three proposed levels: beginner, sous chef and head chef. This enables the user to find recipes based on their complexity.
+- "Filter by difficulty level". There are three proposed levels: beginner, sous chef and head chef. This enables the user to find recipes based on their complexity.
 
 The program will ask you for the preferred difficulty level, 1. Begginer, 2. Sous-Chef or 3. Head-Chef.
 
 ![Screen Shot 2022-12-05 at 7 09 30 PM](https://user-images.githubusercontent.com/118349858/205710554-bf4b1dfb-20f1-43b2-a6c9-3c9d471e854a.png)
 
-- "Begginer":
+1. "Begginer":
 
 It will show 10 random recipes with this level. 
 
@@ -345,7 +348,7 @@ It will show 10 random recipes with this level.
 
 Once you are done, press enter.
 
-- "Sous-Chef":
+2. "Sous-Chef":
 
 It will show 10 random recipes with this level. 
 
@@ -353,7 +356,7 @@ It will show 10 random recipes with this level.
 
 Once you are done, press enter.
 
-- " Head-Chef":
+3. " Head-Chef":
 
 It will show 10 random recipes with this level. 
 
@@ -361,7 +364,7 @@ It will show 10 random recipes with this level.
 
 Once you are done, press enter.
 
-c) "Filter by budget". The program will ask the user to input both maximum and minimum budget in order to decide which recipe to suggest based on cost of ingredients. 
+- "Filter by budget". The program will ask the user to input both maximum and minimum budget in order to decide which recipe to suggest based on cost of ingredients. 
 
 First, you'll be asked for a minimum budget
 
@@ -377,7 +380,7 @@ You'll be shown 10 random recipes with this filter.
 
 Once you are done, press enter.
 
-d) "Filter by a combination of these". 
+- "Filter by a combination of these". 
 
 The program will ask to input which options you want to combine, separating the answers with a comma. A combination of two randoms or all three can be chosen. Then, follow the instruction above. 
 
@@ -385,7 +388,7 @@ Once you are done, press enter.
 
 
 
-6. "Exit":
+## 6. "Exit":
 
 To stop the code.
 
