@@ -393,12 +393,16 @@ Once you are done, press enter.
 To stop the code.
 
 
+
 # Extra information
+
 In order to carry out our objective, we have used the following Data Structures:
 
-- Linked Lists; 
-- Hash tables;
-- Lists;
+- Linked Lists to store information such as the calendar, the meals in both the favourites and in the days inside the calendar, and to optimize the greedy function. 
+
+- Hash tables to store information about the quantities in the pantry and the shopping list. 
+
+- Dataset to have a list of meals that the program could choose from and show the user. 
 
 And the following Algorithms:
 
@@ -408,7 +412,18 @@ And the following Algorithms:
 - QuickSort Algorithm; used to sort the recipes from most expensive to least expensive. Used to order the recepies by difficulty. 
 - Greedy Method; used to look for the best combination of meals available given the limited items in the pantry.
 
+
+# Bibliography
+
+To integrate our code we used the follwing websites to get useful information:
+
+- https://pandas.pydata.org/docs/user_guide/index.html
+- https://pynative.com/python-nested-loops/
+- https://gist.github.com/tonyfast/0d5cbee1f3b4aac205e9ddd407d0f4dchttps://gist.github.com/tonyfast/0d5cbee1f3b4aac205e9ddd407d0f4dc
+
+
 # Credits
+
 The authors of this project are:
 
 
